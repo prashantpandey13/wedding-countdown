@@ -1,70 +1,71 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0%}
+  50% {background-position: 100%}
+  100% {background-position: 0%}
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+}
+
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, rgba(255, 182, 193, 0.8), rgba(255, 218, 185, 0.8));
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: fadeIn 2s ease;
 }
 
 .title {
-    font-family: 'Lobster', cursive;
-    font-size: 4rem;
-    color: #ff69b4;
-    text-shadow: 0 4px 10px rgba(255, 105, 180, 0.5);
-    animation: glow 1s infinite alternate;
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
 }
 
-@keyframes glow {
-    from {
-        text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
-    }
-    to {
-        text-shadow: 0 0 20px #ff1493, 0 0 30px #ff1493;
-    }
+.tag {
+  opacity: 0.8;
+  margin-bottom: 10px;
 }
 
-.button {
-    background-color: #ffc107;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: background-color 0.5s, transform 0.5s;
+.date {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
 }
 
-.button:hover {
-    background-color: #ff9800;
-    transform: scale(1.05);
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
-/* Dark Mode Styles */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-        color: #ffffff;
-    }
-    .container {
-        background: rgba(30, 30, 30, 0.8);
-    }
-    .title {
-        color: #ffccbc;
-    }
-    .button {
-        background-color: #ff7043;
-    }
+.countdown div {
+  background: rgba(255,255,255,0.2);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  font-size: 1.5rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .title {
-        font-size: 2.5rem;
-    }
-    .button {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
+.story {
+  margin-top: 30px;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
