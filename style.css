@@ -263,6 +263,24 @@ body {
   z-index: 10;
 }
 
+.polaroid:nth-child(1) {
+  top: 0;
+  left: 15%;
+  --rotate: -12deg;
+}
+
+.polaroid:nth-child(2) {
+  top: 30px;
+  left: 45%;
+  --rotate: 8deg;
+}
+
+.polaroid:nth-child(3) {
+  top: 10px;
+  left: 70%;
+  --rotate: -6deg;
+}
+
 #musicToggle {
   position: fixed;
   bottom: 20px;
