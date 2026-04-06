@@ -1,9 +1,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
-  background-size: 400% 400%;
-  animation: gradientBG 12s ease infinite;
+  background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000000 100%);
   color: white;
   height: 100vh;
   overflow: hidden;
@@ -201,4 +199,56 @@ body {
   25% { transform: scale(1.25); }
   50% { transform: scale(1); }
   75% { transform: scale(1.15); }
+}
+
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  box-shadow:
+    100px 200px white,
+    300px 400px white,
+    500px 100px white,
+    700px 300px white,
+    900px 200px white,
+    1200px 500px white;
+  animation: twinkle 4s infinite alternate;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
+.hero-img {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  opacity: 0.15;
+  border-radius: 20px;
+  filter: blur(2px);
+  animation: fadeInImg 3s ease forwards;
+}
+
+@keyframes fadeInImg {
+  from { opacity: 0; transform: translate(-50%, -60%); }
+  to { opacity: 0.15; transform: translate(-50%, -50%); }
+}
+
+#musicToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 18px;
+  color: white;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
 }
