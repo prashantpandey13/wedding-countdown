@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Countdown</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: url('background.jpg') no-repeat center center fixed; background-size: cover; }
+        h1 { color: white; text-align: center; }
+        #countdown { font-size: 2em; text-align: center; color: red; }
+        .hero { text-align: center; padding: 50px; }
+        .timeline { margin: 20px; padding: 20px; background-color: rgba(255, 255, 255, 0.8); border-radius: 10px; }
+        audio { display: block; margin: 20px auto; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Welcome to Our Wedding Countdown!</h1>
+        <h2>John & Jane</h2>
+        <div id="countdown"></div>
+    </div>
+    <div class="timeline">
+        <h3>Our Journey</h3>
+        <ul>
+            <li>First Date: 2023-06-01</li>
+            <li>Engagement: 2024-12-05</li>
+            <li>Wedding Day: 2026-04-06</li>
+        </ul>
+    </div>
+    <audio controls>
+        <source src="wedding-song.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+    <script>
+        const countdownDate = new Date('2026-04-06T17:21:59Z').getTime();
+        const countdownElement = document.getElementById('countdown');
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            countdownElement.innerHTML = days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ';  
+            if (distance < 0) {
+                clearInterval(timer);
+                countdownElement.innerHTML = "Wedding has started!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
