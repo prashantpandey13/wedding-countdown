@@ -1,30 +1,35 @@
 const weddingDate = new Date("April 20, 2026 00:00:00").getTime();
 
+let prev = { d: null, h: null, m: null, s: null };
+
+function animateChange(id, newVal, key) {
+  if (prev[key] !== newVal) {
+    const el = document.getElementById(id);
+
+    el.classList.add("flip");
+
+    setTimeout(() => {
+      el.innerText = newVal;
+      el.classList.remove("flip");
+    }, 300);
+
+    prev[key] = newVal;
+  }
+}
+
 function updateCountdown() {
   const now = new Date().getTime();
   const diff = weddingDate - now;
 
-  const values = [
-    Math.floor(diff / (1000 * 60 * 60 * 24)),
-    Math.floor((diff / (1000 * 60 * 60)) % 24),
-    Math.floor((diff / (1000 * 60)) % 60),
-    Math.floor((diff / 1000) % 60)
-  ];
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const m = Math.floor((diff / (1000 * 60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
 
-  const labels = ["Days", "Hours", "Minutes", "Seconds"];
-
-  const container = document.getElementById("countdown");
-
-  container.innerHTML = values.map((val, i) => `
-    <div class="time-box">
-      ${val}<br>${labels[i]}
-    </div>
-  `).join("");
-
-  document.querySelectorAll(".time-box").forEach(box => {
-    box.classList.add("pop");
-    setTimeout(() => box.classList.remove("pop"), 200);
-  });
+  animateChange("days", d, "d");
+  animateChange("hours", h, "h");
+  animateChange("minutes", m, "m");
+  animateChange("seconds", s, "s");
 }
 
 setInterval(updateCountdown, 1000);
