@@ -153,3 +153,20 @@ setTimeout(() => {
   }
 
 }, 1800);
+
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicToggle");
+
+let isPlaying = false;
+
+btn.addEventListener("click", () => {
+  if (isPlaying) {
+    music.pause();
+    btn.innerText = "🔇";
+  } else {
+    music.play();
+    btn.innerText = "🎶";
+  }
+  isPlaying = !isPlaying;
+});
+
