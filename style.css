@@ -80,19 +80,21 @@ body {
 }
 
 .heart {
-  position: absolute;
-  color: rgba(255,255,255,0.8);
-  font-size: 20px;
-  animation: floatUp linear infinite;
+  position: fixed;
+  animation: floatUp ease-in forwards;
+  opacity: 0.9;
 }
 
 @keyframes floatUp {
   0% {
-    transform: translateY(100vh) rotate(0deg);
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
     opacity: 1;
   }
   100% {
-    transform: translateY(-10vh) rotate(360deg);
+    transform: translateY(-110vh) scale(1.2) rotate(360deg);
     opacity: 0;
   }
 }
