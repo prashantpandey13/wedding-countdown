@@ -2,71 +2,152 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Prashant Ki Pratiksha 💍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+  <meta name="description" content="Prashant & Pratiksha's Wedding Countdown - Join us as we count down to our special day on April 20, 2026" />
+  <meta name="theme-color" content="#ff6b9d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  
+  <title>Prashant & Pratiksha 💍 Forever Begins</title>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="preload" href="script.js" as="script" />
+  
+  <!-- Preload critical images for better performance -->
+  <link rel="preload" href="IMG-20260208-WA0009.jpg" as="image" />
+  <link rel="preload" href="IMG-20260208-WA0023.jpg" as="image" />
+  <link rel="preload" href="IMG-20260208-WA0027.jpg" as="image" />
+  
+  <!-- Fonts with display swap for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="stars"></div>
-
-<div class="overlay"></div>
-
-<div class="container">
-  <div class="photo-scatter">
-    <div class="polaroid"><img src="IMG_2394.JPG"></div>
-    <div class="polaroid"><img src="IMG_2399.JPG"></div>
-    <div class="polaroid"><img src="IMG_2357.JPG"></div>
+  <!-- Animated Background -->
+  <div class="bg-animation">
+    <div class="floating-hearts"></div>
+    <div class="starfield"></div>
   </div>
-  <h1 class="title">
-    Prashant 
-    <span class="heart-wrap">
-      <span class="cupid">👼</span>
-      <span class="arrow">➶</span>
-      <span class="main-heart">❤️</span>
-    </span>
-    Pratiksha
-  </h1>
-  <p class="tag">#PrashantKiPratiksha</p>
 
-  <div class="date">20th April 2026</div>
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="photo-gallery">
+        <div class="photo-frame" data-tilt>
+          <img src="IMG-20260208-WA0009.jpg" alt="Standing together" loading="eager" decoding="async" width="200" height="250">
+          <div class="photo-overlay"></div>
+          <div class="photo-caption">Together Forever 💕</div>
+        </div>
+        <div class="photo-frame" data-tilt>
+          <img src="IMG-20260208-WA0023.jpg" alt="Engaged happily close up" loading="eager" decoding="async" width="200" height="250">
+          <div class="photo-overlay"></div>
+          <div class="photo-caption">Our Engagement Moment 💍</div>
+        </div>
+        <div class="photo-frame" data-tilt>
+          <img src="IMG-20260208-WA0027.jpg" alt="Walking toward our journey" loading="eager" decoding="async" width="200" height="250">
+          <div class="photo-overlay"></div>
+          <div class="photo-caption">Our Journey Begins 🌟</div>
+        </div>
+      </div>
 
-  <div id="countdown" class="countdown">
-  <div class="time-box">
-    <span id="days">0</span>
-    <label>Days</label>
-  </div>
-  <div class="time-box">
-    <span id="hours">0</span>
-    <label>Hours</label>
-  </div>
-  <div class="time-box">
-    <span id="minutes">0</span>
-    <label>Minutes</label>
-  </div>
-  <div class="time-box">
-    <span id="seconds">0</span>
-    <label>Seconds</label>
-  </div>
-</div>
+      <!-- Music Button Below Photos -->
+      <div class="music-section">
+        <button id="musicToggle" class="music-btn" aria-label="Play romantic music" title="Play Music">
+          <span class="music-icon">🎵</span>
+          <div class="music-progress"></div>
+        </button>
+        <p class="music-label">Kesariya - Our Song 🎵</p>
+      </div>
 
-  <div class="story">
-    <p>
-      From a beautiful beginning on <strong>05th March 2019</strong>,
-      engaged on <strong>29th Nov 2025</strong>
-      to forever on <strong>20th April 2026</strong> 💫  
-    </p>
-  </div>
-</div>
+      <h1 class="couple-names">
+        <span class="name" data-text="Prashant">Prashant</span>
+        <div class="heart-divider">
+          <span class="heart-icon">💕</span>
+        </div>
+        <span class="name" data-text="Pratiksha">Pratiksha</span>
+      </h1>
+      
+      <p class="tagline">#PrashantKiPratiksha</p>
+    </section>
 
-<canvas id="confetti"></canvas>
+    <!-- Wedding Date -->
+    <section class="wedding-info">
+      <div class="date-announcement">
+        <h2>Our Forever Begins</h2>
+        <div class="wedding-date">April 20, 2026</div>
+      </div>
+    </section>
 
-<button id="musicToggle">🎵</button>
+    <!-- Countdown Timer -->
+    <section class="countdown-section">
+      <h3>Counting Every Moment</h3>
+      <div id="countdown" class="countdown">
+        <div class="time-unit">
+          <span id="days" class="time-value">0</span>
+          <label class="time-label">Days</label>
+        </div>
+        <div class="time-unit">
+          <span id="hours" class="time-value">0</span>
+          <label class="time-label">Hours</label>
+        </div>
+        <div class="time-unit">
+          <span id="minutes" class="time-value">0</span>
+          <label class="time-label">Minutes</label>
+        </div>
+        <div class="time-unit">
+          <span id="seconds" class="time-value">0</span>
+          <label class="time-label">Seconds</label>
+        </div>
+      </div>
+    </section>
 
-<audio id="bgMusic" loop>
-  <source src="your-music.mp3" type="audio/mpeg">
-</audio>
+    <!-- Love Story Timeline -->
+    <section class="love-story">
+      <h3>Our Journey</h3>
+      
+      <!-- Additional Photos Gallery -->
+      <div class="memory-gallery">
+        <div class="memory-row">
+          <div class="memory-photo">
+            <img src="IMG-20260101-WA0015.jpg" alt="Family" loading="lazy" decoding="async" width="240" height="180">
+            <div class="memory-caption">With Our Families 👨‍👩‍👧‍👦</div>
+          </div>
+          <div class="memory-photo">
+            <img src="IMG-20260208-WA0029.jpg" alt="Engaged happily" loading="lazy" decoding="async" width="180" height="220">
+            <div class="memory-caption">Happily Engaged 💖</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">March 5, 2019</div>
+          <div class="timeline-content">Where it all began ✨</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">November 29, 2025</div>
+          <div class="timeline-content">Said yes to forever 💍</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">April 20, 2026</div>
+          <div class="timeline-content">Becoming one soul 💫</div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<script src="script.js"></script>
-<div class="hearts"></div>
+  <!-- Interactive Elements -->
+  <audio id="bgMusic" preload="auto" muted>
+    <source src="Kesariya Brahmastra 128 Kbps.mp3" type="audio/mpeg">
+    <source src="your-music.mp3" type="audio/mpeg">
+    <source src="your-music.wav" type="audio/wav">
+  </audio>
+
+  <script src="script.js"></script>
 </body>
 </html>
