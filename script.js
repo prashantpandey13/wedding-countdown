@@ -170,11 +170,21 @@ btn.addEventListener("click", () => {
   isPlaying = !isPlaying;
 });
 
-const slides = document.querySelectorAll('.hero-slider img');
-let current = 0;
+const cards = document.querySelectorAll('.polaroid');
+let loaded = 0;
 
-setInterval(() => {
-  slides[current].classList.remove('active');
-  current = (current + 1) % slides.length;
-  slides[current].classList.add('active');
-}, 4000);
+cards.forEach(card => {
+  const img = card.querySelector('img');
+  const temp = new Image();
+  temp.src = img.src;
+
+  temp.onload = () => {
+    loaded++;
+
+    if (loaded === cards.length) {
+      cards.forEach((c, i) => {
+        setTimeout(() => c.classList.add('show'), i * 200);
+      });
+    }
+  };
+});
