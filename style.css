@@ -96,3 +96,21 @@ body {
     opacity: 0;
   }
 }
+
+.time-box span {
+  display: inline-block;
+  font-size: 2rem;
+  perspective: 400px;
+}
+
+/* Flip animation */
+.flip {
+  animation: flipAnim 0.6s ease;
+}
+
+@keyframes flipAnim {
+  0%   { transform: rotateX(0deg); }
+  40%  { transform: rotateX(100deg); }
+  60%  { transform: rotateX(-20deg); }
+  100% { transform: rotateX(0deg); }
+}
