@@ -124,3 +124,32 @@ function firecracker() {
 }
 
 setInterval(firecracker, 7000);
+
+// 💘 Cupid impact sequence (runs once)
+setTimeout(() => {
+  const heart = document.querySelector(".main-heart");
+  const wrap = document.querySelector(".heart-wrap");
+
+  if (!heart || !wrap) return;
+
+  // Activate heartbeat + glow
+  heart.classList.add("heart-beat");
+
+  // ✨ Spark burst (controlled, not noisy)
+  for (let i = 0; i < 8; i++) {
+    const spark = document.createElement("div");
+    spark.innerHTML = "✨";
+
+    spark.style.position = "absolute";
+    spark.style.left = "50%";
+    spark.style.top = "50%";
+    spark.style.transform = `translate(-50%, -50%) rotate(${i * 45}deg)`;
+    spark.style.fontSize = "12px";
+    spark.style.pointerEvents = "none";
+
+    wrap.appendChild(spark);
+
+    setTimeout(() => spark.remove(), 800);
+  }
+
+}, 1800);
