@@ -4,17 +4,27 @@ function updateCountdown() {
   const now = new Date().getTime();
   const diff = weddingDate - now;
 
-  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const m = Math.floor((diff / (1000 * 60)) % 60);
-  const s = Math.floor((diff / 1000) % 60);
+  const values = [
+    Math.floor(diff / (1000 * 60 * 60 * 24)),
+    Math.floor((diff / (1000 * 60 * 60)) % 24),
+    Math.floor((diff / (1000 * 60)) % 60),
+    Math.floor((diff / 1000) % 60)
+  ];
 
-  document.getElementById("countdown").innerHTML = `
-    <div>${d}<br>Days</div>
-    <div>${h}<br>Hours</div>
-    <div>${m}<br>Minutes</div>
-    <div>${s}<br>Seconds</div>
-  `;
+  const labels = ["Days", "Hours", "Minutes", "Seconds"];
+
+  const container = document.getElementById("countdown");
+
+  container.innerHTML = values.map((val, i) => `
+    <div class="time-box">
+      ${val}<br>${labels[i]}
+    </div>
+  `).join("");
+
+  document.querySelectorAll(".time-box").forEach(box => {
+    box.classList.add("pop");
+    setTimeout(() => box.classList.remove("pop"), 200);
+  });
 }
 
 setInterval(updateCountdown, 1000);
@@ -91,3 +101,18 @@ function createSparkle() {
 }
 
 setInterval(createSparkle, 800);
+
+function firecracker() {
+  const fire = document.createElement("div");
+  fire.innerHTML = "🎆";
+  fire.style.position = "fixed";
+  fire.style.left = Math.random() * 100 + "vw";
+  fire.style.top = Math.random() * 80 + "vh";
+  fire.style.fontSize = "30px";
+
+  document.body.appendChild(fire);
+
+  setTimeout(() => fire.remove(), 1500);
+}
+
+setInterval(firecracker, 7000);
