@@ -81,16 +81,19 @@ function createHeart() {
   heart.classList.add("heart");
   heart.innerHTML = "💖";
 
+  heart.style.position = "fixed";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+  heart.style.bottom = "-20px";
+  heart.style.animationDuration = (4 + Math.random() * 4) + "s";
   heart.style.fontSize = (15 + Math.random() * 20) + "px";
+  heart.style.pointerEvents = "none";
 
-  heartsContainer.appendChild(heart);
+  document.body.appendChild(heart);
 
   setTimeout(() => heart.remove(), 8000);
 }
 
-setInterval(createHeart, 500);
+setInterval(createHeart, 800); // slower = more premium
 
 function createSparkle() {
   const sparkle = document.createElement("div");
